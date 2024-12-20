@@ -148,6 +148,7 @@ mock_modules = [
     "nncf.tensor.functions.openvino_numeric",
     "nncf.torch.dynamic_graph.patch_pytorch",
     "nncf.tensor.functions.tf_numeric",
+    "nncf.tensor.functions.tf_io",
     "nncf.tensor.functions.tf_linalg",
 ]
 
