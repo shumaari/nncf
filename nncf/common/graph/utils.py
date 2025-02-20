@@ -204,5 +204,5 @@ def get_num_filters_legacy(layer_attributes: WeightedLayerAttributes) -> int:
     :param layer_attributes: layer attributes of NNCFNode.
     :return: number of filters.
     """
-    weight_shape = layer_attributes.get_weight_shape_legacy()
-    return weight_shape[layer_attributes.get_target_dim_for_compression_legacy()]
+    weight_shape = get_weight_shape_legacy(layer_attributes)
+    return weight_shape[get_target_dim_for_compression_legacy(layer_attributes)]
