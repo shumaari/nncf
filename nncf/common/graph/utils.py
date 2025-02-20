@@ -14,11 +14,11 @@ from typing import List, Set, Tuple, Type, Union
 
 from nncf.common.graph import NNCFGraph
 from nncf.common.graph import NNCFNode
-from nncf.common.graph.layer_attributes import WeightedLayerAttributes
-from nncf.common.graph.layer_attributes import GenericWeightedLayerAttributes
-from nncf.common.graph.layer_attributes import LinearLayerAttributes
 from nncf.common.graph.layer_attributes import ConvolutionLayerAttributes
+from nncf.common.graph.layer_attributes import GenericWeightedLayerAttributes
 from nncf.common.graph.layer_attributes import GroupNormLayerAttributes
+from nncf.common.graph.layer_attributes import LinearLayerAttributes
+from nncf.common.graph.layer_attributes import WeightedLayerAttributes
 from nncf.common.graph.operator_metatypes import OperatorMetatype
 from nncf.common.logging import nncf_logger
 from nncf.common.pruning.utils import traverse_function
@@ -139,8 +139,7 @@ def get_reduction_axes(
     return tuple(reduction_axes)
 
 
-def get_weight_shape_legacy(
-    layer_attributes: WeightedLayerAttributes) -> List[int]:
+def get_weight_shape_legacy(layer_attributes: WeightedLayerAttributes) -> List[int]:
     """
     Returns hard-coded weights shape layout only for Torch and Tensorflow models.
 
@@ -151,31 +150,31 @@ def get_weight_shape_legacy(
         return layer_attributes.weight_shape
 
     if isinstance(layer_attributes, LinearLayerAttributes):
-        return[layer_attributes.out_features, layer_attributes.in_features]
+        return [layer_attributes.out_features, layer_attributes.in_features]
 
     if isinstance(layer_attributes, ConvolutionLayerAttributes):
         if not layer_attributes.transpose:
-            return [layer_attributes.out_channels,
-                    layer_attributes.in_channels // layer_attributes.groups,
-                    *layer_attributes.kernel_size]
-        return [layer_attributes.in_channels,
-                layer_attributes.out_channels // layer_attributes.groups,
+            return [
+                layer_attributes.out_channels,
+                layer_attributes.in_channels // layer_attributes.groups,
                 *layer_attributes.kernel_size]
+        return [
+            layer_attributes.in_channels,
+            layer_attributes.out_channels // layer_attributes.groups,
+            *layer_attributes.kernel_size]
 
     if isinstance(layer_attributes, GroupNormLayerAttributes):
         return [layer_attributes.num_channels]
 
 
-def get_target_dim_for_compression_legacy(
-    layer_attributes: WeightedLayerAttributes) -> int:
+def get_target_dim_for_compression_legacy(layer_attributes: WeightedLayerAttributes) -> int:
     """
     Returns hard-coded target dim for compression only for Torch and Tensorflow models.
 
     :param layer_attributes: layer attributes of NNCFNode.
     :return: target dim for compression.
     """
-    if isinstance(layer_attributes, (GenericWeightedLayerAttributes,
-                LinearLayerAttributes, GroupNormLayerAttributes)):
+    if isinstance(layer_attributes, (GenericWeightedLayerAttributes, LinearLayerAttributes, GroupNormLayerAttributes)):
         return 0
 
     if isinstance(layer_attributes, ConvolutionLayerAttributes):
@@ -185,8 +184,7 @@ def get_target_dim_for_compression_legacy(
         return 0
 
 
-def get_bias_shape_legacy(
-    layer_attributes: WeightedLayerAttributes) -> int:
+def get_bias_shape_legacy(layer_attributes: WeightedLayerAttributes) -> int:
     """
     Returns hard-coded bias shape only for Torch and Tensorflow models.
 
@@ -195,3 +193,15 @@ def get_bias_shape_legacy(
     """
     if isinstance(layer_attributes, LinearLayerAttributes):
         return layer_attributes.out_features if layer_attributes.with_bias is True else 0
+
+
+def get_num_filters_legacy(layer_attributes: WeightedLayerAttributes) -> int:
+    """
+    Returns hard-coded number of filters only for Torch and Tensorflow models.
+
+    :param layer_attributes: layer attributes of NNCFNode.
+    :return: number of filters.
+    """
+    weight_shape = layer_attributes.get_weight_shape_legacy()
+    return weight_shape[layer_attributes.get_target_dim_for_compression_legacy()]
+    
