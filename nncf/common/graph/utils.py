@@ -157,11 +157,13 @@ def get_weight_shape_legacy(layer_attributes: WeightedLayerAttributes) -> List[i
             return [
                 layer_attributes.out_channels,
                 layer_attributes.in_channels // layer_attributes.groups,
-                *layer_attributes.kernel_size]
+                *layer_attributes.kernel_size,
+            ]
         return [
             layer_attributes.in_channels,
             layer_attributes.out_channels // layer_attributes.groups,
-            *layer_attributes.kernel_size]
+            *layer_attributes.kernel_size,
+        ]
 
     if isinstance(layer_attributes, GroupNormLayerAttributes):
         return [layer_attributes.num_channels]
@@ -204,4 +206,3 @@ def get_num_filters_legacy(layer_attributes: WeightedLayerAttributes) -> int:
     """
     weight_shape = layer_attributes.get_weight_shape_legacy()
     return weight_shape[layer_attributes.get_target_dim_for_compression_legacy()]
-    
