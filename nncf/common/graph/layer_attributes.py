@@ -66,17 +66,9 @@ class WeightedLayerAttributes(BaseLayerAttributes):
         self.dtype = dtype
         self.with_bias = with_bias
 
-    @abstractmethod
-    def get_weight_shape(self) -> List[int]:
-        pass
-
     def get_num_filters(self) -> int:
         weight_shape = self.get_weight_shape()
         return weight_shape[self.get_target_dim_for_compression()]
-
-    @abstractmethod
-    def get_target_dim_for_compression(self) -> int:
-        pass
 
 
 class GenericWeightedLayerAttributes(WeightedLayerAttributes):
