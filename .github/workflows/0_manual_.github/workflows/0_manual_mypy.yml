@@ -1,4 +1,4 @@
-name: mypy
+name: manual_mypy
 permissions: read-all
 
 on:
