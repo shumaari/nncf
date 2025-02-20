@@ -157,13 +157,11 @@ def get_weight_shape_legacy(layer_attributes: WeightedLayerAttributes) -> List[i
             return [
                 layer_attributes.out_channels,
                 layer_attributes.in_channels // layer_attributes.groups,
-                *layer_attributes.kernel_size
-                ]
+                *layer_attributes.kernel_size]
         return [
             layer_attributes.in_channels,
             layer_attributes.out_channels // layer_attributes.groups,
-            *layer_attributes.kernel_size
-            ]
+            *layer_attributes.kernel_size]
 
     if isinstance(layer_attributes, GroupNormLayerAttributes):
         return [layer_attributes.num_channels]
