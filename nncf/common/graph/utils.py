@@ -166,7 +166,7 @@ def get_weight_shape_legacy(layer_attributes: WeightedLayerAttributes) -> List[i
         return [layer_attributes.num_channels]
 
     else:
-        assert isinstance(layer_attributes, GenericWeightedLayerAttributes):
+        assert isinstance(layer_attributes, GenericWeightedLayerAttributes)
         return layer_attributes.weight_shape
 
 
@@ -184,9 +184,10 @@ def get_target_dim_for_compression_legacy(layer_attributes: WeightedLayerAttribu
         return 0
 
     else:
-        assert isinstance(layer_attributes, (GenericWeightedLayerAttributes, LinearLayerAttributes, GroupNormLayerAttributes)):
+        assert isinstance(
+            layer_attributes, (GenericWeightedLayerAttributes, LinearLayerAttributes, GroupNormLayerAttributes)
+        )
         return 0
-
 
 
 def get_bias_shape_legacy(layer_attributes: WeightedLayerAttributes) -> int:
