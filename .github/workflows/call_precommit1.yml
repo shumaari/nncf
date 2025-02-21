@@ -161,7 +161,7 @@ jobs:
 
   tensorflow:
     timeout-minutes: 40
-    runs-on: ubuntu-latest-8-cores
+    runs-on: ubuntu-latest
     if: ${{ inputs.python_version != '3.12' }}
     defaults:
       run:
