@@ -117,8 +117,8 @@ jobs:
           pytest tests/torch/sparsity/test_common.py::TestSparseModules::test_scheduler_can_do_epoch_step[multistep-get_multistep_params-ref_levels2-rb_sparsity]
           pytest tests/torch/sparsity/test_common.py::test_sparsity_statistics_add_module[magnitude_sparsity]
           pytest tests/torch/sparsity/test_common.py::test_sparsity_statistics_add_module[rb_sparsity]
-          pytest tests/torch/sparsity/test_common.py::test_can_sparsify_embedding[magnitude_sparsity] - AttributeError: 'GenericWeightedLayerAttributes' object has no attribute 'get_weight_shape'. Did you mean: 'weight_shape'?
-          pytest tests/torch/sparsity/test_common.py::test_can_sparsify_embedding[rb_sparsity] - AttributeError: 'GenericWeightedLayerAttributes' object has no attribute 'get_weight_shape'. Did you mean: 'weight_shape'?
+          pytest tests/torch/sparsity/test_common.py::test_can_sparsify_embedding[magnitude_sparsity]
+          pytest tests/torch/sparsity/test_common.py::test_can_sparsify_embedding[rb_sparsity]
           pytest tests/torch/sparsity/test_strip.py::test_strip_sparsity[with_quantization]
           pytest tests/torch/sparsity/test_strip.py::test_strip_sparsity[no_quantization]
           pytest tests/torch/sparsity/test_strip.py::test_do_copy[with_quantization-True]
@@ -130,9 +130,9 @@ jobs:
           pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Conv2d-Sparsity]
           pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Conv2d-MagnitudeSparsity]
           pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Conv2d-ConstSparsity]
-          pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Linear-Sparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Linear-MagnitudeSparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Linear-ConstSparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Linear-Sparsity]
+          pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Linear-MagnitudeSparsity]
+          pytest tests/torch/test_algo_common.py::TestCompressionAlgos::test_can_export_compressed_model[Linear-ConstSparsity]
           pytest tests/torch/test_algo_common.py::test_no_weight_override_on_pruning_export[sparsity]
           pytest tests/torch/test_algo_common.py::test_can_get_compression_stage[const_sparsity]
           pytest tests/torch/test_algo_common.py::test_can_get_compression_stage[magnitude_sparsity]
@@ -140,13 +140,13 @@ jobs:
           pytest tests/torch/test_algo_common.py::test_can_get_compression_stage[magnitude_sparsity_quantization0]
           pytest tests/torch/test_algo_common.py::test_can_get_compression_stage[magnitude_sparsity_quantization1]
           pytest tests/torch/test_algo_common.py::test_can_get_compression_stage[magnitude_sparsity_quantization_filter_pruning]
-          pytest tests/torch/test_algo_common.py::test_raise_validationerror_for_not_matched_scope_names[False-const_sparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_algo_common.py::test_raise_validationerror_for_not_matched_scope_names[False-magnitude_sparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_algo_common.py::test_raise_validationerror_for_not_matched_scope_names[False-rb_sparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_algo_common.py::test_compressed_model_has_controller_references[algos1] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_algo_common.py::test_can_apply_algo_with_single_line[const_sparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_algo_common.py::test_can_apply_algo_with_single_line[magnitude_sparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_algo_common.py::test_can_apply_algo_with_single_line[rb_sparsity] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_algo_common.py::test_raise_validationerror_for_not_matched_scope_names[False-const_sparsity]
+          pytest tests/torch/test_algo_common.py::test_raise_validationerror_for_not_matched_scope_names[False-magnitude_sparsity]
+          pytest tests/torch/test_algo_common.py::test_raise_validationerror_for_not_matched_scope_names[False-rb_sparsity]
+          pytest tests/torch/test_algo_common.py::test_compressed_model_has_controller_references[algos1]
+          pytest tests/torch/test_algo_common.py::test_can_apply_algo_with_single_line[const_sparsity]
+          pytest tests/torch/test_algo_common.py::test_can_apply_algo_with_single_line[magnitude_sparsity]
+          pytest tests/torch/test_algo_common.py::test_can_apply_algo_with_single_line[rb_sparsity]
           pytest tests/torch/test_api_behavior.py::test_model_is_inited_with_own_device_by_default[cpu]
           pytest tests/torch/quantization/test_range_init.py::TestRangeInit::test_scale_and_sign_init_for_quant_algo__without_init_section[create_config-wrapped_dataloader]
           pytest tests/torch/quantization/test_range_init.py::TestRangeInit::test_scale_and_sign_init_for_quant_algo__without_init_section[create_empty_config_without_init_section-wrapped_dataloader]
@@ -223,11 +223,11 @@ jobs:
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-senet18]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-preresnet50]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-unet]
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_cell] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_uni_seq] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_uni_stacked] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_bi_seq] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_bi_stacked] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_cell]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_uni_seq]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_uni_stacked]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_bi_seq]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-lstm_bi_stacked]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[RB-sr_small_model]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-alexnet]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lenet]
@@ -250,11 +250,11 @@ jobs:
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-senet18]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-preresnet50]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-unet]
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_cell] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_uni_seq] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_uni_stacked] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_bi_seq] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_bi_stacked] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_cell]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_uni_seq]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_uni_stacked]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_bi_seq]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-lstm_bi_stacked]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Magnitude-sr_small_model]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-alexnet]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lenet]
@@ -333,36 +333,36 @@ jobs:
           pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_training_process[cpu]
           pytest tests/torch/test_knowledge_distillation.py::test_loss_outputs_parsing
           pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_outputs_containers_parsing
-          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[mse-1-None] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[mse-1-None]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-ssd_mobilenet]
-          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[softmax-1-1] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[mse-10-None] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[softmax-1-1]
+          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[mse-10-None]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-mobilenet_v2]
-          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[softmax-1-5] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[softmax-2-5] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[softmax-1-5]
+          pytest tests/torch/test_knowledge_distillation.py::test_knowledge_distillation_loss_types[softmax-2-5]
           pytest tests/torch/test_knowledge_distillation.py::test_kd_sparsity_statistics[magnitude_sparsity]
           pytest tests/torch/test_knowledge_distillation.py::test_kd_sparsity_statistics[rb_sparsity]
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list0-softmax-True] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list1-softmax-True] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list0-softmax-True]
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list1-softmax-True]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-mobilenet_v3_small]
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list2-softmax-True] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list3-softmax-False] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list4-softmax-False] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list5-mse-False] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list6-mse-False] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list7-mse-False] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list8-mse-True] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list9-mse-False] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list2-softmax-True]
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list3-softmax-False]
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list4-softmax-False]
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list5-mse-False]
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list6-mse-False]
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list7-mse-False]
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list8-mse-True]
+          pytest tests/torch/test_knowledge_distillation.py::test_kd_incompatible_output_shapes_handling[outputs_dim_numbers_list9-mse-False]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-resnext29_32x4d]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-pnasnetb]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-senet18]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-preresnet50]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-unet]
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_cell] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_uni_seq] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_uni_stacked] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_bi_seq] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_bi_stacked] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_cell]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_uni_seq]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_uni_stacked]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_bi_seq]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-lstm_bi_stacked]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[inception_v3]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_network[Const-sr_small_model]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[squeezenet1_0]
@@ -378,11 +378,11 @@ jobs:
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[senet18]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[preresnet50]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[unet]
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_cell] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_uni_seq] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_uni_stacked] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_bi_seq] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
-          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_bi_stacked] - AttributeError: 'LinearLayerAttributes' object has no attribute 'get_weight_shape'
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_cell]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_uni_seq]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_uni_stacked]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_bi_seq]
+          pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[lstm_bi_stacked]
           pytest tests/torch/test_compressed_graph.py::TestModelsGraph::test_sparse_quantize_network[sr_small_model]
           pytest tests/torch/test_resume_from_checkpoint.py::test_load_state_interoperability[save:const_sparsity__load:quantization_rb_sparsity-from:GPU_to:CPU-load_weights]
           pytest tests/torch/test_resume_from_checkpoint.py::test_load_state_interoperability[save:const_sparsity__load:quantization_rb_sparsity-from:GPU_to:GPU-resume]
