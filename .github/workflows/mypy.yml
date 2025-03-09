@@ -1,12 +1,14 @@
-name: mypy
+# name: mypy
+name: manual_mypy
 permissions: read-all
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+  # pull_request:
+  #   types:
+  #     - opened
+  #     - reopened
+  #     - synchronize
+  workflow_dispatch:
     paths:
       - '.github/workflows/mypy.yml'
       - 'pyproject.toml'
