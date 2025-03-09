@@ -1,12 +1,14 @@
-name: pre-commit-linters
+# name: pre-commit-linters
+name: manual-pre-commit-linters
 permissions: read-all
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+  # pull_request:
+  #   types:
+  #     - opened
+  #     - reopened
+  #     - synchronize
+  workflow_dispatch: 
 
 jobs:
   pre-commit:
